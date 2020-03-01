@@ -20,7 +20,7 @@ import Sidebar from "./Sidebar";
 
 import type {
   T_Highlight,
-  T_NewHighlight
+    T_NewHighlight
 } from "react-pdf-highlighter/src/types";
 
 import "./style/App.css";
@@ -67,7 +67,7 @@ class App extends Component<Props, State> {
     });
   };
 
-  scrollViewerTo = (highlight: any) => {};
+  scrollViewerTo = (highlight: any) => { };
 
   scrollToHighlightFromHash = () => {
     const highlight = this.getHighlightById(parseIdFromHash());
@@ -108,10 +108,10 @@ class App extends Component<Props, State> {
       highlights: this.state.highlights.map(h => {
         return h.id === highlightId
           ? {
-              ...h,
-              position: { ...h.position, ...position },
-              content: { ...h.content, ...content }
-            }
+            ...h,
+            position: { ...h.position, ...position },
+            content: { ...h.content, ...content }
+          }
           : h;
       })
     });
@@ -122,10 +122,6 @@ class App extends Component<Props, State> {
 
     return (
       <div className="App" style={{ display: "flex", height: "100vh" }}>
-        <Sidebar
-          highlights={highlights}
-          resetHighlights={this.resetHighlights}
-        />
         <div
           style={{
             height: "100vh",
@@ -151,15 +147,15 @@ class App extends Component<Props, State> {
                   hideTipAndSelection,
                   transformSelection
                 ) => (
-                  <Tip
-                    onOpen={transformSelection}
-                    onConfirm={comment => {
-                      this.addHighlight({ content, position, comment });
+                    <Tip
+                      onOpen={transformSelection}
+                      onConfirm={comment => {
+                        this.addHighlight({ content, position, comment });
 
-                      hideTipAndSelection();
-                    }}
-                  />
-                )}
+                        hideTipAndSelection();
+                      }}
+                    />
+                  )}
                 highlightTransform={(
                   highlight,
                   index,
@@ -180,17 +176,17 @@ class App extends Component<Props, State> {
                       comment={highlight.comment}
                     />
                   ) : (
-                    <AreaHighlight
-                      highlight={highlight}
-                      onChange={boundingRect => {
-                        this.updateHighlight(
-                          highlight.id,
-                          { boundingRect: viewportToScaled(boundingRect) },
-                          { image: screenshot(boundingRect) }
-                        );
-                      }}
-                    />
-                  );
+                      <AreaHighlight
+                        highlight={highlight}
+                        onChange={boundingRect => {
+                          this.updateHighlight(
+                            highlight.id,
+                            { boundingRect: viewportToScaled(boundingRect) },
+                            { image: screenshot(boundingRect) }
+                          );
+                        }}
+                      />
+                    );
 
                   return (
                     <Popup
@@ -209,6 +205,10 @@ class App extends Component<Props, State> {
             )}
           </PdfLoader>
         </div>
+        <Sidebar
+          highlights={highlights}
+          resetHighlights={this.resetHighlights}
+        />
       </div>
     );
   }
