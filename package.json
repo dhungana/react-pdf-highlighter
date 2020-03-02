@@ -39,7 +39,8 @@
   ],
   "files": [
     "build",
-    "src"
+    "src",
+    "index.js"
   ],
   "repository": {
     "type": "git",
