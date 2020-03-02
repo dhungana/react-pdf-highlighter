@@ -56,7 +56,7 @@ class Tip extends Component {
       }
     }, React.createElement("div", null, React.createElement("textarea", {
       width: "100%",
-      placeholder: "Your comment",
+      placeholder: "Field",
       autoFocus: true,
       value: text,
       onChange: event => this.setState({
@@ -67,17 +67,7 @@ class Tip extends Component {
           node.focus();
         }
       }
-    }), React.createElement("div", null, ["💩", "😱", "😍", "🔥", "😳", "⚠️"].map(_emoji => React.createElement("label", {
-      key: _emoji
-    }, React.createElement("input", {
-      checked: emoji === _emoji,
-      type: "radio",
-      name: "emoji",
-      value: _emoji,
-      onChange: event => this.setState({
-        emoji: event.target.value
-      })
-    }), _emoji)))), React.createElement("div", null, React.createElement("input", {
+    })), React.createElement("div", null, React.createElement("input", {
       type: "submit",
       value: "Save"
     }))));
